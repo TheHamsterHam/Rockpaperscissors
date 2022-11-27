@@ -1,17 +1,27 @@
-let choices = ["rock", "paper", "scissors"];
+const choices = ["rock", "paper", "scissor"];
 
-// GETTING USER INPUT
-const userInput = prompt("Do you choose rock, paper or scissors?").toLocaleLowerCase(); 
-    if(userInput ==="paper" || userInput ==="rock" || userInput ==="scissors"){
-        console.log("You chose " + `${userInput}`);
+// ask user 
+const playerSelection = prompt("Do you choose rock, paper, or scissor?").toLocaleLowerCase(); 
+    if(playerSelection ==="paper" || playerSelection ==="rock" || playerSelection ==="scissor"){
+        console.log("You chose " + `${playerSelection}`);
     } else {
-        console.log("Error! Try again!");
+        console.log("Error! Please choice rock, paper, or scissor");
     }
 
 
-    function getComputerChoice () {
-        //1.get ramdom number script
-        const randNum = Math.floor(Math,ramdom() * 3) + 1;
-        //2.let computer pick one of those number
-        //3.show result on console
-    }
+//getComputerChoice
+let getComputerChoice = choices[Math.floor(Math.random()*3)];
+console.log("Computer chose" + ` ${getComputerChoice}`);
+
+//winner and loser
+const winner = declareWinner(playerSelection, getComputerChoice);
+
+function declareWinner(playerSelection, getComputerChoice) {
+  if (playerSelection === 'rock' && getComputerChoice === 'paper') {
+    console.log('You lose! Rock beats Paper');
+  } else if (playerSelection === 'scissor' && getComputerChoice === 'paper') {
+    console.log('You win! Scissor beats Paper');
+  } else {
+    console.log('You tie!');
+  }
+}
