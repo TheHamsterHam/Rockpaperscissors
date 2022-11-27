@@ -51,6 +51,10 @@ const playerSelection = 'rock'
 
 const game = () => {
   for (let i = 0; i < 5; i++) {
+    const playerSelection = prompt('Do you choose rock, paper, or scissor?', 'Type your choice').toLocaleLowerCase();
+  if (playerSelection ==="paper" || playerSelection ==="rock" || playerSelection ==="scissor") {
+      console.log("You choose " + `${playerSelection}`);
+  } else console.log("Error! Please choose rock, paper, or scissor"); 
     const ComputerSelection = computerplay(); 
     playerRound(playerSelection, ComputerSelection)
   }
@@ -60,7 +64,7 @@ const game = () => {
   } else if (playerScore < compScore) {
       return 'The computer won the game!'
   } else {
-    return 'You tie!'
+    return 'It is a tie!'
   }
 }
 
