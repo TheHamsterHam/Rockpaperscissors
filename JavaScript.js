@@ -1,25 +1,17 @@
 let playerScore = 0
-let getComputerScore = 0
-const choices = ["rock", "paper", "scissor"];
-
-// ask user 
-const playerSelection = prompt("Do you choose rock, paper, or scissor?").toLocaleLowerCase(); 
-    if(playerSelection ==="paper" || playerSelection ==="rock" || playerSelection ==="scissor"){
-        console.log("You chose " + `${playerSelection}`);
-    } else {
-        console.log("Error! Please choose rock, paper, or scissor");
-    }
+let compScore = 0
 
 
 //ComputerSelection
-let ComputerSelection = choices[Math.floor(Math.random()*3)];
-console.log("Computer chose" + ` ${ComputerSelection}`);
-
-//winner and loser
-const winner = declareWinner(playerSelection, ComputerSelection);
+const computerplay = () => {
+  const choices = ['rock', 'paper', 'scissor']
+  const randomNum = Math.floor(Math.random()*3)
+  const compChoice = choices[randomNum]
+  return compChoice 
+}
 
 //rock
-function declareWinner(playerSelection, ComputerSelection) {
+const playerRound = (playerSelection, ComputerSelection) => {
 if (playerSelection === 'rock' && ComputerSelection === 'paper') {
     console.log('You lose! Rock beats Paper');
   } else if (playerSelection === 'rock' && ComputerSelection === 'scissor') {
@@ -43,10 +35,13 @@ if (playerSelection === 'rock' && ComputerSelection === 'paper') {
   }
 }
 
+const playerSelection = 'rock'
+
 const game = () => {
   for (let i = 0; i < 5; i++) {
-    const getComputerScore = computerPlay()
-    console.log(playerSelection, ComputerSelection) 
+    const ComputerSelection = computerplay(); 
+    console.log(playerRound(playerSelection, ComputerSelection))
   }
 }
 
+game()
