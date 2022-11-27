@@ -25,11 +25,19 @@ if (playerSelection === 'rock' && getComputerChoice === 'paper') {
   } else if (playerSelection === 'rock' && getComputerChoice === 'rock') {
     console.log('It is a tie!');
 //paper
-    else if (playerSelection === 'paper' && getComputerChoice === 'rock') {
-    console.log('You win! paper beats rock');
+  } else if (playerSelection === 'paper' && getComputerChoice === 'rock') {
+    console.log('You win! Paper beats Rock');
   } else if (playerSelection === 'paper' && getComputerChoice === 'scissor') {
-    console.log('You win! Scissor beats Paper');
+    console.log('You lose! Scissor beats Paper');
   } else if (playerSelection === 'paper' && getComputerChoice === 'paper') {
     console.log('It is a tie!');
-
+//scissor
+  } else if (playerSelection === 'scissor' && getComputerChoice === 'rock') {
+    console.log('You lose! Rock beats Scissor');
+  } else if (playerSelection === 'scissor' && getComputerChoice === 'paper') {
+    console.log('You win! Scissor beats Paper');
+  } else if (playerSelection === 'scissor' && getComputerChoice === 'scissor') {
+    console.log('It is a tie!');
+  }
 }
+
