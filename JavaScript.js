@@ -1,72 +1,90 @@
 let playerScore = 0
 let compScore = 0
-const rockbutton = document.querySelector('.rock')
-const paperbutton = document.querySelector('.paper')
-const scissorsbutton = document.querySelector('.scissors')
+const rockButton = document.querySelector('.rockbt')
+const paperButton = document.querySelector('.paperbt')
+const scissorsButton = document.querySelector('.scissorsbt')
 const outcomeDiv = document.querySelector('.outcome')
 
 
 //ComputerSelection
 const computerplay = () => {
   const choices = ['rock', 'paper', 'scissor']
-  const randomNum = Math.floor(Math.random()*3)
-  const compChoice = choices[randomNum]
-  return compChoice 
+  const randomNum = Math.floor(Math.random() * choices.length)
+  return choices[randomNum]
 }
 
 //rock
-const playerRound = (playerSelection, ComputerSelection) => {
+const playRound = (playerSelection, ComputerSelection) => {
 if (playerSelection === 'rock' && ComputerSelection === 'paper') {
   const p = document.createElement('p')
-  p.innerText ='You lose! Rock beats Paper'
+  p.innerText = 'You lose! Rock beats Paper'
+  outcomeDiv.appendChild(p)
     //score for computer add one (+1)
-    compScore++
+    //compScore++
   } else if (playerSelection === 'rock' && ComputerSelection === 'scissor') {
     const p = document.createElement('p')
-    p.innerText ='You win! Scissor beats Paper';
+    p.innerText = 'You win! Scissor beats Paper'
+    outcomeDiv.appendChild(p)
     //score for player add one (+1)
-    playerScore++
+    //playerScore++
   } else if (playerSelection === 'rock' && ComputerSelection === 'rock') {
     const p = document.createElement('p')
-    console.log('It is a tie!');
+    p.innerText = 'It is a tie!'
+    outcomeDiv.appendChild(p)
 //paper
   } else if (playerSelection === 'paper' && ComputerSelection === 'rock') {
     const p = document.createElement('p')
-    p.innerText ='You win! Paper beats Rock';
+    p.innerText = 'You win! Paper beats Rock'
+    outcomeDiv.appendChild(p)
     //score for player add one (+1)
-    playerScore++
+    //playerScore++
   } else if (playerSelection === 'paper' && ComputerSelection === 'scissor') {
     const p = document.createElement('p')
-    p.innerText ='You lose! Scissor beats Paper';
+    p.innerText = 'You lose! Scissor beats Paper'
+    outcomeDiv.appendChild(p)
     //score for computer add one (+1)
-    compScore++
+    //compScore++
   } else if (playerSelection === 'paper' && ComputerSelection === 'paper') {
     const p = document.createElement('p')
-    cp.innerText ='It is a tie!';
+    p.innerText = 'It is a tie!'
+    outcomeDiv.appendChild(p)
 //scissor
   } else if (playerSelection === 'scissor' && ComputerSelection === 'rock') {
     const p = document.createElement('p')
-    p.innerText ='You lose! Rock beats Scissor';
+    p.innerText = 'You lose! Rock beats Scissor'
+    outcomeDiv.appendChild(p)
     //score for computer add one (+1)
-    compScore++
+    //compScore++
   } else if (playerSelection === 'scissor' && ComputerSelection === 'paper') {
     const p = document.createElement('p')
-    cp.innerText ='You win! Scissor beats Paper';
+    cp.innerText = 'You win! Scissor beats Paper'
+    outcomeDiv.appendChild(p)
     //score for player add one (+1)
-    playerScore++
+    //playerScore++
   } else if (playerSelection === 'scissor' && ComputerSelection === 'scissor') {
     const p = document.createElement('p')
-    p.innerText ='It is a tie!';
+    p.innerText = 'It is a tie!'
+    outcomeDiv.appendChild(p)
   }
 }
 
-rockbutton.addEventListener('click', () => {
-  const ComputerSelection = computerplay
+rockButton.addEventListener('click', () => {
+  const ComputerSelection = computerplay()
   const playerSelection = 'rock'
-  playerRound(playerSelection, ComputerSelection)
+  playRound(playerSelection, ComputerSelection)
 })
 
+paperButton.addEventListener('click', () => {
+  const ComputerSelection = computerplay()
+  const playerSelection = 'paper'
+  playRound(playerSelection, ComputerSelection)
+})
 
+scissorsButton.addEventListener('click', () => {
+  const ComputerSelection = computerplay()
+  const playerSelection = 'scissors'
+  playRound(playerSelection, ComputerSelection)
+})
 
 
 
