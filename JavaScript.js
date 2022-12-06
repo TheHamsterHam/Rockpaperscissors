@@ -21,13 +21,13 @@ if (playerSelection === 'rock' && ComputerSelection === 'paper') {
   p.innerText = 'You lose! Rock beats Paper'
   outcomeDiv.appendChild(p)
     //score for computer add one (+1)
-    //compScore++
+    compScore++
   } else if (playerSelection === 'rock' && ComputerSelection === 'scissor') {
     const p = document.createElement('p')
     p.innerText = 'You win! Scissor beats Paper'
     outcomeDiv.appendChild(p)
     //score for player add one (+1)
-    //playerScore++
+    playerScore++
   } else if (playerSelection === 'rock' && ComputerSelection === 'rock') {
     const p = document.createElement('p')
     p.innerText = 'It is a tie!'
@@ -38,13 +38,13 @@ if (playerSelection === 'rock' && ComputerSelection === 'paper') {
     p.innerText = 'You win! Paper beats Rock'
     outcomeDiv.appendChild(p)
     //score for player add one (+1)
-    //playerScore++
+    playerScore++
   } else if (playerSelection === 'paper' && ComputerSelection === 'scissor') {
     const p = document.createElement('p')
     p.innerText = 'You lose! Scissor beats Paper'
     outcomeDiv.appendChild(p)
     //score for computer add one (+1)
-    //compScore++
+    compScore++
   } else if (playerSelection === 'paper' && ComputerSelection === 'paper') {
     const p = document.createElement('p')
     p.innerText = 'It is a tie!'
@@ -55,13 +55,13 @@ if (playerSelection === 'rock' && ComputerSelection === 'paper') {
     p.innerText = 'You lose! Rock beats Scissor'
     outcomeDiv.appendChild(p)
     //score for computer add one (+1)
-    //compScore++
+    compScore++
   } else if (playerSelection === 'scissor' && ComputerSelection === 'paper') {
     const p = document.createElement('p')
-    cp.innerText = 'You win! Scissor beats Paper'
+    p.innerText = 'You win! Scissor beats Paper'
     outcomeDiv.appendChild(p)
     //score for player add one (+1)
-    //playerScore++
+    playerScore++
   } else if (playerSelection === 'scissor' && ComputerSelection === 'scissor') {
     const p = document.createElement('p')
     p.innerText = 'It is a tie!'
@@ -71,12 +71,17 @@ if (playerSelection === 'rock' && ComputerSelection === 'paper') {
 
 const checkWhoIsWinner = (playerScore, compScore ) => {
   if (playerScore === 5) {
-    const h2 = document,createElement('h2')
+    const h2 = document.createElement('h2')
     h2.classList.add('play-won')
-    h2.innerText = `Your score is ${playerScore} against ${compScore}, you won!`
+    h2.innerText = `Your score is ${playerScore} points against the computer's 
+    ${compScore} points, you won!`
+    outcomeDiv.append(h2)
   } else if (compScore === 5) {
+    const h2 = document.createElement('h2')
     h2.classList.add('comp-won')
-    h2.innerText = `Your score is ${playerScore} against ${compScore}, you lost!`
+    h2.innerText = `Your score is ${playerScore} ppoints against the computer's
+     ${compScore} points, you lost!`
+    outcomeDiv.append(h2)
   }
 }
 
