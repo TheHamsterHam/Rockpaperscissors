@@ -15,6 +15,7 @@ const computerplay = () => {
 
 //rock
 const playRound = (playerSelection, ComputerSelection) => {
+const outcomeDiv = document.querySelector('.outcome')
 if (playerSelection === 'rock' && ComputerSelection === 'paper') {
   const p = document.createElement('p')
   p.innerText = 'You lose! Rock beats Paper'
@@ -68,26 +69,40 @@ if (playerSelection === 'rock' && ComputerSelection === 'paper') {
   }
 }
 
+const checkWhoIsWinner = (playerScore, compScore ) => {
+  if (playerScore === 5) {
+    const h2 = document,createElement('h2')
+    h2.classList.add('play-won')
+    h2.innerText = `Your score is ${playerScore} against ${compScore}, you won!`
+  } else if (compScore === 5) {
+    h2.classList.add('comp-won')
+    h2.innerText = `Your score is ${playerScore} against ${compScore}, you lost!`
+  }
+}
+
 rockButton.addEventListener('click', () => {
   const ComputerSelection = computerplay()
   const playerSelection = 'rock'
   playRound(playerSelection, ComputerSelection)
+  checkWhoIsWinner(playerScore, compScore)
 })
 
 paperButton.addEventListener('click', () => {
   const ComputerSelection = computerplay()
   const playerSelection = 'paper'
   playRound(playerSelection, ComputerSelection)
+  checkWhoIsWinner(playerScore, compScore)
 })
 
 scissorsButton.addEventListener('click', () => {
   const ComputerSelection = computerplay()
-  const playerSelection = 'scissors'
+  const playerSelection = 'scissor'
   playRound(playerSelection, ComputerSelection)
+  checkWhoIsWinner(playerScore, compScore)
 })
 
 
-
+//OLD CODE
 //const playerSelection = 'rock'
 
 //const game = () => {
